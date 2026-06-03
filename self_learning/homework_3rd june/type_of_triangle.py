@@ -1,3 +1,4 @@
+#wap to specify the type of triangle,if three sides form a triangle
 a = float(input("Enter first side: "))
 b = float(input("Enter second side: "))
 c = float(input("Enter third side: "))
