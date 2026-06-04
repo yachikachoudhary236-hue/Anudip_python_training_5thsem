@@ -12,7 +12,7 @@ else:
 
     # check divisibility from 2 to num-1
     for i in range(2, num):
-        if num % i == 0:
+        if num // i == 0:
             is_prime = False  # number is divisible, so not prime
             break  # no need to check further
 
