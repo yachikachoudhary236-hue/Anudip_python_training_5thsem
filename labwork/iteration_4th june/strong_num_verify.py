@@ -1,17 +1,28 @@
-#wap for strong num verification
 num = int(input("Enter a number: "))
-sum = 0
+# Save original number
 temp = num
+
+# Store sum of factorials
+sum_of_factorials = 0
+
+# Process each digit
 while temp > 0:
     digit = temp % 10
+
+    # Find factorial
     factorial = 1
     for i in range(1, digit + 1):
         factorial *= i
-    sum += factorial
-    temp //= 10
-if num == sum:
-    print(num, "is a Strong number")
-else:
-    print(num, "is not a Strong number")
 
+    # Add factorial to sum
+    sum_of_factorials += factorial
+
+    # Remove last digit
+    temp //= 10
+
+# Check Strong Number
+if sum_of_factorials == num:
+    print(num, "is a Strong Number")
+else:
+    print(num, "is not a Strong Number")
     
