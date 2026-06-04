@@ -1,21 +1,33 @@
- #Program: Electricity Bill Calculator
-# Take input from user
-units = float(input("Enter number of units consumed: "))
+# Wap to calculate electricity bill
 
-# Initialize bill amount
-bill = 0
+units = int(input("Enter units consumed: "))
 
-# Slab 1: 0 - 100 units (Rs. 5 per unit)
-if units <= 100:
+# validate units
+if(units < 0):
+    exit("Units cannot be negative")
+
+# ---------------------------------------------------
+
+# bill calculation
+if(units <= 100):
     bill = units * 5
-
-# Slab 2: 101 - 200 units (Rs. 7 per unit)
-elif units <= 200:
-    bill = (100 * 5) + (units - 100) * 7
-
-# Slab 3: Above 200 units (Rs. 10 per unit)
+elif(units <= 200):
+    bill = (100 * 5) + ((units - 100) * 7)
 else:
-    bill = (100 * 5) + (100 * 7) + (units - 200) * 10
+    bill = (100 * 5) + (100 * 7) + ((units - 200) * 10)
 
-# Display final bill
-print("Electricity Bill = Rs.", bill)
+# ---------------------------------------------------
+
+# category determination
+if(units <= 100):
+    category = "Low Consumption"
+elif(units <= 200):
+    category = "Medium Consumption"
+else:
+    category = "High Consumption"
+
+# ---------------------------------------------------
+
+print("Units Consumed =", units)
+print("Total Bill = ₹", bill)
+print("Category =", category
