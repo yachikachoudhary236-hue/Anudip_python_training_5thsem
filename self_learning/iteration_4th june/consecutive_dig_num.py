@@ -1,22 +1,34 @@
-# Program to check whether a number contains consecutive digits
-# Input number from the user
+
+# Program to check whether a number is a Consecutive Digit Number
+# Accept a number from the user
 num = int(input("Enter a number: "))
 
-# Convert number to string for easy digit access
-num_str = str(num)
+# Store the last digit
+prev_digit = num % 10
 
-# Assume digits are consecutive initially
+# Remove the last digit
+num = num // 10
+
+# Assume the number is consecutive
 is_consecutive = True
 
-# Check each pair of adjacent digits
-for i in range(len(num_str) - 1):
-    # If the next digit is not 1 greater than the current digit
-    if int(num_str[i + 1]) != int(num_str[i]) + 1:
+# Check digits from right to left
+while num > 0:
+    current_digit = num % 10
+
+    # Check if the next digit is exactly 1 greater
+    if current_digit + 1 != prev_digit:
         is_consecutive = False
         break
 
-# Display result
+    # Update previous digit
+    prev_digit = current_digit
+
+    # Remove the last digit
+    num = num // 10
+
+# Display the result
 if is_consecutive:
-    print("The number has consecutive digits.")
+    print("Consecutive Number")
 else:
-    print("The number does not have consecutive digits.")
+    print("Not a Consecutive Number")
